@@ -31,19 +31,20 @@ backgroundColor='white'
       },
     }}
   >
-     <MenuItem icon={<GrOverview />} component={<Link to="/" />} suffix={<Badge variant="success">New</Badge>}>
+     <MenuItem icon={<GrOverview />} component={<Link to="/" />} >
      Overview
               </MenuItem>
               <MenuItem icon={<PiBooksLight />} component={<Link to="/courses" />} suffix={<Badge variant="success">New</Badge>}>
               Courses
               </MenuItem>
-              <MenuItem icon={<GrSchedules />} component={<Link to="/schedule" />} suffix={<Badge variant="success">New</Badge>}>
+              <MenuItem icon={<GrSchedules />} component={<Link to="/schedule" />} suffix={<Badge variant="danger" shape="circle">4</Badge>}>
               Schedule
               </MenuItem>
-              <MenuItem icon={<GoCommentDiscussion />} component={<Link to="/discussion" />} suffix={<Badge variant="success">New</Badge>}>
+              <MenuItem icon={<GoCommentDiscussion />} component={<Link to="/discussion" />} suffix={<Badge variant="info" shape='circle'>9</Badge>}>
               Discussion
               </MenuItem>
-              <MenuItem icon={<GrSettingsOption />} component={<Link to="/settings" />} suffix={<Badge variant="success">New</Badge>}>
+              <MenuItem icon={<GrSettingsOption />} component={<Link to="/settings" />} 
+             >
               Settings
               </MenuItem>
   </Menu>
