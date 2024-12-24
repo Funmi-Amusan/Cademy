@@ -8,15 +8,17 @@ import { PiBooksLight } from "react-icons/pi";
 import { Badge } from './Badge';
 
 
+
 const SidebarComponent = () => {
     const [collapsed, setCollapsed] = React.useState(false);
     return (
-       <div className='h-screen p-6  '>
+       <div className='h-screen m-6 mr-0  '>
 <Sidebar 
+backgroundColor='white'
     collapsed={collapsed} >
-    <div className=' flex gap-2 pb-12'>
-    <img src={Logo} className='w-6' alt="" />
-    <h1 className=' font-bold'>Cademy</h1>
+    <div className=' flex gap-2 pb-12 px-6'>
+    <img src={Logo} className='w-8' alt="" />
+    <h1 className=' font-medium text-2xl'>Cademy</h1>
     </div>
 
   <Menu 

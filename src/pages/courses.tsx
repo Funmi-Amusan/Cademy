@@ -1,11 +1,11 @@
-import SidebarComponent from "../components/layout/Sidebar";
+import Layout from "../components/layout/layout";
 
 const Courses = () => {
  
     return (
-       <div>
-<SidebarComponent />
-       </div>
+       <Layout>
+<h1>Courses</h1>
+       </Layout>
     );
 };
 export default Courses;

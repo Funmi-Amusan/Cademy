@@ -1,11 +1,11 @@
-import SidebarComponent from "../components/layout/Sidebar";
+import Layout from "../components/layout/layout";
 
 const Discussion = () => {
  
     return (
-       <div>
-<SidebarComponent />
-       </div>
+       <Layout>
+<h1>Discussion</h1>
+       </Layout>
     );
 };
 export default Discussion;

@@ -3,6 +3,10 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //import { Provider } from "react-redux";
 import Dashboard from "./pages/dashboard";
+import Schedule from "./pages/schedule";
+import Courses from "./pages/courses";
+import Discussion from "./pages/discussion";
+import Settings from "./pages/settings";
 
 const router = createBrowserRouter([
     {
@@ -11,19 +15,19 @@ const router = createBrowserRouter([
     },
     {
         path: "/schedule",
-        element: <Dashboard />
+        element: <Schedule />
     },
     {
         path: "/courses",
-        element: <Dashboard />
+        element: <Courses />
     },
     {
         path: "/discussion",
-        element: <Dashboard />
+        element: <Discussion />
     },
     {
         path: "/settings",
-        element: <Dashboard />
+        element: <Settings />
     }
 ]);
 

@@ -1,11 +1,11 @@
-import SidebarComponent from "../components/layout/Sidebar";
+import Layout from "../components/layout/layout";
 
 const Dashboard = () => {
  
     return (
-       <div>
-<SidebarComponent />
-       </div>
+      <Layout>
+        <h1>Dashboard</h1>
+      </Layout>
     );
 };
 export default Dashboard;
