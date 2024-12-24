@@ -1,6 +1,6 @@
 import SidebarComponent from "../components/layout/Sidebar";
 
-const Dashboard = () => {
+const Settings = () => {
  
     return (
        <div>
@@ -8,4 +8,4 @@ const Dashboard = () => {
        </div>
     );
 };
-export default Dashboard;
+export default Settings;

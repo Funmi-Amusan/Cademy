@@ -8,6 +8,22 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Dashboard />
+    },
+    {
+        path: "/schedule",
+        element: <Dashboard />
+    },
+    {
+        path: "/courses",
+        element: <Dashboard />
+    },
+    {
+        path: "/discussion",
+        element: <Dashboard />
+    },
+    {
+        path: "/settings",
+        element: <Dashboard />
     }
 ]);
 
