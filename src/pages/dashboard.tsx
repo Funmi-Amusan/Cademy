@@ -1,4 +1,5 @@
 import Calendar from "../components/calendar/Calendar";
+import UpcomingClasses from "../components/calendar/UpcomingClasses";
 import Header from "../components/layout/Header";
 import Layout from "../components/layout/layout";
 
@@ -18,7 +19,7 @@ const Dashboard = () => {
                  {/* Fancy calendar component */}
         <Calendar />
         {/* Tasks in timeline view */}
-        <h1>tasks</h1>
+        <UpcomingClasses />
             </div>
         </main>
       </Layout>
