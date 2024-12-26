@@ -2,6 +2,7 @@ import Calendar from "../components/calendar/Calendar";
 import UpcomingClasses from "../components/calendar/UpcomingClasses";
 import Header from "../components/layout/Header";
 import Layout from "../components/layout/layout";
+import Reminders from "../components/reminders/Reminders";
 
 const Dashboard = () => {
  
@@ -9,9 +10,9 @@ const Dashboard = () => {
       <Layout>
         <Header />
         <main className=" grid grid-cols-3 ">
-            <div className=" col-span-2 bg-purple-500 gap-4" >
-        {/* Conditional reminder if task is in less than 3 hours */}
-        <h1>reminder</h1>
+            <div className=" col-span-2 gap-4" >
+        {/* carousel of reminders, join class, upcoming events, announcements... */}
+        <Reminders />
         {/* Enrolled courses */}
         <h1>Courses</h1>
             </div>
