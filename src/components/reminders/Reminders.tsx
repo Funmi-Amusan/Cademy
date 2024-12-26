@@ -14,7 +14,7 @@ function Reminders() {
     </div>
  </div>
 
- <div className=" bg-teal-700 text-white p-6 rounded-xl">
+ {/* <div className=" bg-teal-700 text-white p-6 rounded-xl">
     <div className=" text-start">
         <h1 className=" text-3xl font-semibold">Join a club today</h1>
         <p className=" w-1/2 font-light">  Eco-Warriors, PremLeaGeng, Foodies, Health4All and more are looking for member.</p>
@@ -27,7 +27,7 @@ function Reminders() {
         <h1 className=" text-3xl font-semibold">Student Union Elections</h1>
         <p className=" w-1/2 font-light"> The election day for the unuversity student union holds tomorrow. Cast your vote</p>
     </div>
- </div>
+ </div> */}
 
     </div>
   )
