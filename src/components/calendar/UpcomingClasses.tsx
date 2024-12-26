@@ -11,7 +11,7 @@ function UpcomingClasses() {
     <div className=" bg-white p-4 rounded-xl">
     <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-            <GoDotFill />
+            <GoDotFill className=" text-teal-700" />
             <p>12:30pm - 2:00pm</p>   
         </div>
         <PiDotsThreeVerticalBold />
@@ -31,7 +31,7 @@ function UpcomingClasses() {
     <div className=" bg-white p-4 rounded-xl">
     <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-            <GoDotFill />
+            <GoDotFill className=" text-rose-700" />
             <p>3:30pm - 5:00pm</p>   
         </div>
         <PiDotsThreeVerticalBold />
