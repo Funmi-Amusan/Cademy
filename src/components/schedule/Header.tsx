@@ -3,7 +3,7 @@ import { format, getYear, setMonth } from "date-fns";
 import logo from "../assets/logo.png";
 // import GlobalContext from "../../context/";
 
-export default function CalendarHeader() {
+export default function ScheduleHeader() {
   const { monthIndex, setMonthIndex } = useState(1);
 
 //   function handlePrevMonth() {

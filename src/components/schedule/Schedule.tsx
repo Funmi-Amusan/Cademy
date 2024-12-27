@@ -1,28 +1,20 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./App.css";
-import CalendarHeader from "./components/CalendarHeader";
-import Sidebar from "./components/Sidebar";
-import Month from "./components/Month";
-import GlobalContext from "./context/GlobalContext";
-import EventModal from "./components/EventModal";
+import ScheduleHeader from "./Header";
 import { getMonth } from "../../utils";
 function App() {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
-  const { monthIndex, showEventModal } = useContext(GlobalContext);
 
   useEffect(() => {
-    setCurrentMonth(getMonth(monthIndex));
-  }, [monthIndex]);
+    setCurrentMonth(getMonth(1));
+  }, [currenMonth]);
 
   return (
     <React.Fragment>
-      {showEventModal && <EventModal />}
 
       <div className="h-screen flex flex-col">
-        <CalendarHeader />
+        <ScheduleHeader />
         <div className="flex flex-1">
-          <Sidebar />
-          <Month month={currenMonth} />
         </div>
       </div>
     </React.Fragment>
