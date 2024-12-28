@@ -1,27 +1,26 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { format, getYear, setMonth } from "date-fns";
 import logo from "../assets/logo.png";
-// import GlobalContext from "../../context/";
 
 export default function ScheduleHeader() {
-  const { monthIndex, setMonthIndex } = useState(1);
+  const [monthIndex, setMonthIndex] = useState(new Date().getMonth());
 
-//   function handlePrevMonth() {
-//     setMonthIndex(monthIndex - 1);
-//   }
+  function handlePrevMonth() {
+    setMonthIndex(monthIndex - 1);
+  }
 
-//   function handleNextMonth() {
-//     setMonthIndex(monthIndex + 1);
-//   }
+  function handleNextMonth() {
+    setMonthIndex(monthIndex + 1);
+  }
 
-//   function handleReset() {
-//     const currentMonth = new Date().getMonth();
-//     setMonthIndex(
-//       monthIndex === currentMonth
-//         ? monthIndex + Math.random()
-//         : currentMonth
-//     );
-//   }
+  function handleReset() {
+    const currentMonth = new Date().getMonth();
+    setMonthIndex(
+      monthIndex === currentMonth
+        ? monthIndex + Math.random()
+        : currentMonth
+    );
+  }
 
   return (
     <header className="px-4 py-2 flex items-center">
@@ -30,21 +29,17 @@ export default function ScheduleHeader() {
         Calendar
       </h1>
       <button
-        //onClick={handleReset}
+        onClick={handleReset}
         className="border rounded py-2 px-4 mr-5"
       >
         Today
       </button>
-      <button 
-      //onClick={handlePrevMonth}
-      >
+      <button onClick={handlePrevMonth}>
         <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
           chevron_left
         </span>
       </button>
-      <button 
-      //onClick={handleNextMonth}
-      >
+      <button onClick={handleNextMonth}>
         <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
           chevron_right
         </span>
