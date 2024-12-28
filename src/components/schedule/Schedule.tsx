@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import ScheduleHeader from "./Header";
 import { getMonth } from "../../utils";
-function App() {
+function ScheduleIndex () {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
 
   useEffect(() => {
@@ -21,4 +20,4 @@ function App() {
   );
 }
 
-export default App;
+export default ScheduleIndex ;

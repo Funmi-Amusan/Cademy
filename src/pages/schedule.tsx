@@ -1,10 +1,11 @@
 import Layout from "../components/layout/layout";
+import ScheduleIndex from "../components/schedule/Schedule";
 
 const Schedule = () => {
  
     return (
        <Layout>
-<h1>Schedule</h1>
+<ScheduleIndex />
        </Layout>
     );
 };

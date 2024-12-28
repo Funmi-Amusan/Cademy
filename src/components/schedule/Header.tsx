@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { format, getYear, setMonth } from "date-fns";
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
 
 export default function ScheduleHeader() {
   const [monthIndex, setMonthIndex] = useState(new Date().getMonth());
@@ -24,7 +24,7 @@ export default function ScheduleHeader() {
 
   return (
     <header className="px-4 py-2 flex items-center">
-      <img src={logo} alt="calendar" className="mr-2 w-12 h-12" />
+      {/* <img src={logo} alt="calendar" className="mr-2 w-12 h-12" /> */}
       <h1 className="mr-10 text-xl text-gray-500 fond-bold">
         Calendar
       </h1>
