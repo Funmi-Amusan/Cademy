@@ -1,6 +1,7 @@
 
-import { Fragment } from 'react/jsx-runtime'
+//import { Fragment } from 'react/jsx-runtime'
 import { getMonth } from '../../utils'
+import MonthViewBox from './monthViewBox'
 
 function Monthview() {
 const currenMonth = getMonth()
@@ -10,9 +11,8 @@ const currenMonth = getMonth()
     <div  key={index}>
 {
     row.map((day, i) => (
-        <h3 key={i}>{day.toLocaleDateString('en-NG', {
-           day: 'numeric'
-        } )}</h3>
+        <MonthViewBox day={day} rowIndex={i} />
+    
     ))
 }
     </div>
