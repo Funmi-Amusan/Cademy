@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "primereact/resources/primereact.min.css";  
 //import { Provider } from "react-redux";
 import Dashboard from "./pages/dashboard";
 import Schedule from "./pages/schedule";

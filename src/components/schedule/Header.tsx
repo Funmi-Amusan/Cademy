@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { format, getYear, setMonth } from "date-fns";
-// import logo from "../assets/logo.png";
+import { SelectButton } from 'primereact/selectbutton';
+import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 
 export default function ScheduleHeader() {
   const [monthIndex, setMonthIndex] = useState(new Date().getMonth());
+  const [value, setValue] = useState('left');
 
   function handlePrevMonth() {
     setMonthIndex(monthIndex - 1);
@@ -22,31 +24,47 @@ export default function ScheduleHeader() {
     );
   }
 
+  const justifyOptions = [
+    { value: 'Day'},
+    {value: 'Week'},
+    { value: 'Month'}
+];
+
+
+const justifyTemplate = (option: { value: string | undefined; }) => {
+  return <p>{option.value}</p>
+}
+
   return (
-    <header className="px-4 py-2 flex items-center">
-      {/* <img src={logo} alt="calendar" className="mr-2 w-12 h-12" /> */}
-      <h1 className="mr-10 text-xl text-gray-500 fond-bold">
-        Calendar
-      </h1>
-      <button
-        onClick={handleReset}
-        className="border rounded py-2 px-4 mr-5"
-      >
-        Today
-      </button>
+    <header className="px-4 py-2 flex justify-between items-center">
+      <div className="flex items-center gap-2">
+      <h2 className="w-1/2 text-lg text-gray-500 font-semibold ">
+        {format(setMonth(new Date(getYear(new Date()), monthIndex), monthIndex), 'MMMM yyyy')}
+      </h2>
+      <div className=" flex items-center">
       <button onClick={handlePrevMonth}>
         <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-          chevron_left
+         <IoChevronBackOutline  />
         </span>
       </button>
       <button onClick={handleNextMonth}>
         <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-          chevron_right
+          <IoChevronForwardOutline />
         </span>
       </button>
-      <h2 className="ml-4 text-xl text-gray-500 font-bold">
-        {format(setMonth(new Date(getYear(new Date()), monthIndex), monthIndex), 'MMMM yyyy')}
-      </h2>
+      </div>
+      <button
+        onClick={handleReset}
+        className="border rounded py-2 px-4 mr-5 hover:bg-stone-500"
+      >
+        Today
+      </button>
+      </div>
+
+      <div className="">
+      <SelectButton className=" text-sm " value={value} options={justifyOptions} onChange={(e) => setValue(e.value)} itemTemplate={justifyTemplate} optionLabel="value" />
+      </div>
+   
     </header>
   );
 }
