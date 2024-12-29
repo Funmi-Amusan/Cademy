@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MonthViewBox({day, rowIndex}: { day: Date, rowIndex: number}) {
+function MonthViewBox({day, rowIndex, index}: { day: Date, rowIndex: number, index: number}) {
   return (
     <div className='w-8 aspect-square border flex flex-col items-center hover:bg-zinc-200 transition-all'>
 {rowIndex === 0 && (
