@@ -12,12 +12,12 @@ import { Badge } from './Badge';
 const SidebarComponent = () => {
     const [collapsed, setCollapsed] = React.useState(false);
     return (
-       <div className='h-screen m-6 mr-0  '>
+       <div className='h-screen  '>
 <Sidebar 
 backgroundColor='white'
     collapsed={collapsed} >
-    <div className=' flex gap-2 pb-12 px-6'>
-    <img src={Logo} className='w-8' alt="" />
+    <div className=' flex gap-2 pb-12 pt-6 px-6 items-center'>
+    <img src={Logo} className='w-4' alt="" />
     <h1 className=' font-medium text-2xl'>Cademy</h1>
     </div>
 
