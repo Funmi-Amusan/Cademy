@@ -39,7 +39,7 @@ export const useDateStore = create<DateStoreType>()(
             (set) => ({
                 userSelectedDate: startOfToday(),
                 twoDMonthArray: getMonth(),
-                selectedMonthIndex: dayjs().month(),
+                selectedMonthIndex: new Date().getMonth(),
                 setDate: (value: Date) => {
                     set({ userSelectedDate: value });
                 },
