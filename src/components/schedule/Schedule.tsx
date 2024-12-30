@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ScheduleHeader from "./Header";
-import { getMonth } from "../../utils";
 import Sidebar from "./sidebar/Sidebar";
 import Monthview from "./Month";
-function ScheduleIndex () {
-  const [currenMonth, setCurrentMonth] = useState(getMonth());
+import { useViewStore } from "../../store";
+import WeekView from "./WeekView";
+import DayView from "./DayView";
 
-  useEffect(() => {
-    setCurrentMonth(getMonth(1));
-  }, []);
+
+function ScheduleIndex () {
+  const { selectedView } = useViewStore();
+
 
   return (
     <React.Fragment>
@@ -17,7 +18,7 @@ function ScheduleIndex () {
         <ScheduleHeader />
         <div className="flex flex-1">
         <Sidebar />
-        <Monthview />
+        {selectedView === 'month' ?  <Monthview /> : selectedView === 'week' ? <WeekView /> : <DayView /> }
         </div>
       </div>
     </React.Fragment>
