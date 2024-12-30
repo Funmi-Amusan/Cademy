@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { format, getYear, setMonth } from "date-fns";
 import { SelectButton } from 'primereact/selectbutton';
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
+import { useViewStore } from "../../store";
 
 export default function ScheduleHeader() {
+  const { setViewType } = useViewStore();
   const [monthIndex, setMonthIndex] = useState(new Date().getMonth());
   const [value, setValue] = useState('left');
 
@@ -62,7 +64,10 @@ const justifyTemplate = (option: { value: string | undefined; }) => {
       </div>
 
       <div className="">
-      <SelectButton className=" text-sm " value={value} options={justifyOptions} onChange={(e) => setValue(e.value)} itemTemplate={justifyTemplate} optionLabel="value" />
+          <SelectButton className="text-sm" value={value} options={justifyOptions} itemTemplate={justifyTemplate} optionLabel="value" onChange={(e) => {
+            setValue(e.value)
+            setViewType(e.value)
+          }} />
       </div>
    
     </header>
