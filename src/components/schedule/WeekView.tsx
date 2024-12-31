@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useDateStore } from "../../store";
 import { getHours, getWeekDays } from "../../utils";
 
@@ -5,6 +6,13 @@ function WeekView() {
 
   const { userSelectedDate } = useDateStore();
   const days = getWeekDays(userSelectedDate);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000); 
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
     <div className="grid grid-cols-8 w-full">
@@ -32,6 +40,14 @@ function WeekView() {
              
             </div>
           ))}
+          {day.today && (
+                    <div
+                      className={`absolute h-0.5 !w-14 bg-red-500`}
+                      style={{
+                        top: `${(currentTime.getHours() / 24) * 100}%`,
+                      }}
+                    />
+                  )}
         </div>
          </div>
     ))}
