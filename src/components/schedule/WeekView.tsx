@@ -32,7 +32,7 @@ function WeekView() {
   ];
   return (
     <>
-    <aside className=" w-1/12">
+    {/* <aside className=" w-1/12">
     <div className=" border-l pt-5 border-gray-300">
           { hours.map((hour, index) => (
             <div key={index} className="h-10 flex  text-[8px] border-b border-gray-300">
@@ -40,8 +40,16 @@ function WeekView() {
             </div>
           ))}
         </div>
-    </aside>
-    <div className="grid grid-cols-7 w-11/12">
+    </aside> */}
+    <div className="grid grid-cols-8 w-full">
+    <div className="w-12 border-gray-300">
+    {hours.map((hour, index) => (
+        <div key={index} className={`flex items-end text-[8px] border-b border-gray-300 ${index === 0 ? 'h-20' : 'h-10'}`}>
+            <p>{hour}</p>
+        </div>
+    ))}
+</div>
+
     {days.map((day, index) => (
       <div key={index}>
         <div className=" h-10 text-center items-center flex flex-col gap-2">
