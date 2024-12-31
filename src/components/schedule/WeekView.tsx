@@ -32,14 +32,23 @@ function WeekView() {
   ];
   return (
     <>
-    <div className="grid grid-cols-7 w-full">
+    <aside className=" w-1/12">
+    <div className=" border-l pt-5 border-gray-300">
+          { hours.map((hour, index) => (
+            <div key={index} className="h-10 flex  text-[8px] border-b border-gray-300">
+             {hour}
+            </div>
+          ))}
+        </div>
+    </aside>
+    <div className="grid grid-cols-7 w-11/12">
     {days.map((day, index) => (
       <div key={index}>
-        <div>
-        <p>
+        <div className=" h-10 text-center items-center flex flex-col gap-2">
+        <p className="text-sm font-light uppercase">
         {day.currentDate.toLocaleDateString('en-NG', {weekday: 'short'})}
         </p>
-         <p>
+         <p className=" text-xl">
          {day.currentDate.toLocaleDateString('en-NG', {day: 'numeric'})}
          </p>
         </div>
