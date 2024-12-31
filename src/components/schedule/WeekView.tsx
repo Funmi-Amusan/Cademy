@@ -1,51 +1,17 @@
 import { useDateStore } from "../../store";
-import { getWeekDays } from "../../utils";
+import { getHours, getWeekDays } from "../../utils";
 
 function WeekView() {
   const { userSelectedDate } = useDateStore();
   const days = getWeekDays(userSelectedDate);
-  const hours = [
-    "12:00 AM",
-    "1:00 AM",
-    "2:00 AM",
-    "3:00 AM",
-    "4:00 AM",
-    "5:00 AM",
-    "6:00 AM",
-    "7:00 AM",
-    "8:00 AM",
-    "9:00 AM",
-    "10:00 AM",
-    "11:00 AM",
-    "12:00 PM",
-    "1:00 PM",
-    "2:00 PM",
-    "3:00 PM",
-    "4:00 PM",
-    "5:00 PM",
-    "6:00 PM",
-    "7:00 PM",
-    "8:00 PM",
-    "9:00 PM",
-    "10:00 PM",
-    "11:00 PM",
-  ];
+
   return (
     <>
-    {/* <aside className=" w-1/12">
-    <div className=" border-l pt-5 border-gray-300">
-          { hours.map((hour, index) => (
-            <div key={index} className="h-10 flex  text-[8px] border-b border-gray-300">
-             {hour}
-            </div>
-          ))}
-        </div>
-    </aside> */}
     <div className="grid grid-cols-8 w-full">
     <div className="w-12 border-gray-300">
-    {hours.map((hour, index) => (
+    {getHours.map((hour, index) => (
         <div key={index} className={`flex items-end text-[8px] border-b border-gray-300 ${index === 0 ? 'h-20' : 'h-10'}`}>
-            <p>{hour}</p>
+            <p className=" uppercase">{hour.toLocaleString('en-NG', { hour: 'numeric', hour12: true })}</p>
         </div>
     ))}
 </div>
@@ -56,12 +22,12 @@ function WeekView() {
         <p className="text-sm font-light uppercase">
         {day.currentDate.toLocaleDateString('en-NG', {weekday: 'short'})}
         </p>
-         <p className=" text-xl">
+         <button className=" text-xl hover:bg-slate-200 p-2 rounded-full aspect-square ">
          {day.currentDate.toLocaleDateString('en-NG', {day: 'numeric'})}
-         </p>
+         </button>
         </div>
         <div className=" border-l border-gray-300">
-          { hours.map((hour, index) => (
+          { getHours.map((hour, index) => (
             <div key={index} className="h-10 flex items-center justify-center border-b border-gray-300">
              
             </div>
