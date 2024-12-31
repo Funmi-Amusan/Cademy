@@ -11,6 +11,7 @@ export default function ScheduleHeader() {
 
   function handlePrevMonth() {
     setMonthIndex(monthIndex - 1);
+    
   }
 
   function handleNextMonth() {
@@ -26,15 +27,15 @@ export default function ScheduleHeader() {
     );
   }
 
-  const justifyOptions = [
-    { value: 'Day'},
-    {value: 'Week'},
-    { value: 'Month'}
+  const viewOptions = [
+    { value: 'day'},
+    {value: 'week'},
+    { value: 'month'}
 ];
 
 
 const justifyTemplate = (option: { value: string | undefined; }) => {
-  return <p>{option.value}</p>
+  return <p className=" capitalize ">{option.value}</p>
 }
 
   return (
@@ -64,7 +65,7 @@ const justifyTemplate = (option: { value: string | undefined; }) => {
       </div>
 
       <div className="">
-          <SelectButton className="text-sm" value={value} options={justifyOptions} itemTemplate={justifyTemplate} optionLabel="value" onChange={(e) => {
+          <SelectButton className="text-sm" value={value} options={viewOptions} itemTemplate={justifyTemplate} optionLabel="value" onChange={(e) => {
             setValue(e.value)
             setViewType(e.value)
           }} />

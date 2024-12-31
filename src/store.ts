@@ -1,6 +1,7 @@
-import { getMonth, startOfToday } from 'date-fns';
+import { startOfToday } from 'date-fns';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
+import { getMonth } from './utils';
 interface ViewStoreType {
     selectedView: string,
     setViewType: (value: string) => void
