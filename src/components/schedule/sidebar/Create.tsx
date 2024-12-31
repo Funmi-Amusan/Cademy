@@ -2,9 +2,7 @@ import React from 'react'
 
 function Create() {
   return (
-    <button>
-        Create
-    </button>
+<div></div>
   )
 }
 
