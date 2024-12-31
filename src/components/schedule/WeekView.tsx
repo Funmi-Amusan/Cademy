@@ -2,9 +2,9 @@ import { useDateStore } from "../../store";
 import { getHours, getWeekDays } from "../../utils";
 
 function WeekView() {
+
   const { userSelectedDate } = useDateStore();
   const days = getWeekDays(userSelectedDate);
-
   return (
     <>
     <div className="grid grid-cols-8 w-full">
@@ -22,7 +22,7 @@ function WeekView() {
         <p className="text-sm font-light uppercase">
         {day.currentDate.toLocaleDateString('en-NG', {weekday: 'short'})}
         </p>
-         <button className=" text-xl hover:bg-slate-200 p-2 rounded-full aspect-square ">
+         <button className={` text-xl hover:bg-slate-200 p-2 rounded-full aspect-square ${day.today && 'bg-emerald-600'}`}  >
          {day.currentDate.toLocaleDateString('en-NG', {day: 'numeric'})}
          </button>
         </div>
