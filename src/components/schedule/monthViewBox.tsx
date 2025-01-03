@@ -1,5 +1,7 @@
 import { format, isFirstDayOfMonth, isSameDay } from "date-fns";
 import { useDateStore, useEventStore } from "../../store";
+import { EventRenderer } from "./eventRenderer";
+import { monthEvents } from "../../lib/data";
 
 
 function MonthViewBox({day, rowIndex, index}: { day: Date, rowIndex: number, index: number}) {
@@ -32,6 +34,7 @@ isFirstDayOftheMonth ? (
  } )}</h3>
 )
 }
+<EventRenderer date={day} view={"month"} events={monthEvents} />
     </div>
   )
 }
