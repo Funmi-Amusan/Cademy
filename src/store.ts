@@ -20,6 +20,25 @@ interface DateStoreType {
     setMonth: (index: number) => void;
 }
 
+export type CalenderEventType = {
+    id: string;
+    title: string;
+    date: Date;
+    description: string;
+}
+
+type EventStore = {
+    events: CalenderEventType[];
+    isPopoverOpen: boolean;
+    isEventSummaryOpen: boolean;
+    selectedEvent: CalenderEventType | null;
+    setEvents: (events: CalenderEventType[]) => void;
+    openPopover: () => void;
+    closePopover: () => void;
+    openEventsSummary: (event: CalenderEventType) => void;
+    closeEventsSummary: () => void;
+}
+
 export const useViewStore = create<ViewStoreType>()(
     devtools(
         persist(
@@ -52,3 +71,15 @@ export const useDateStore = create<DateStoreType>()(
         ),
     ),
 );
+
+export const useEventStore = create<EventStore>((set) => ({
+    events: [],
+    isPopoverOpen: false,
+    isEventSummaryOpen: false,
+    selectedEvent: null,
+    setEvents: (events) => set({ events }),
+    openPopover: () => set({ isPopoverOpen: true }),
+    closePopover: () => set({ isPopoverOpen: false }),
+    openEventsSummary: (event) => set({ isEventSummaryOpen: true, selectedEvent: event }),
+    closeEventsSummary: () => set({ isEventSummaryOpen: false, selectedEvent: null }),
+}))
