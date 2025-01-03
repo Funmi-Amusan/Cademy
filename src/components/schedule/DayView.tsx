@@ -1,8 +1,15 @@
-import { useDateStore } from "../../store";
+import { useDateStore, useEventStore } from "../../store";
 import { getHours } from "../../utils"
 
 function DayView() {
-const { userSelectedDate } = useDateStore();
+const { userSelectedDate, setDate } = useDateStore();
+  const { openPopover, events } = useEventStore();
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setDate(userSelectedDate);
+    openPopover();
+  };
   return (
 <>
 <div className=" flex flex-col w-full">
@@ -33,7 +40,7 @@ const { userSelectedDate } = useDateStore();
         ))}
     </div>
 
-    <div className="">
+    <div onClick={handleClick}  className="">
         {getHours.map((hour, index) => (
             <div key={index} className="h-10 flex items-center justify-center border-t border-gray-300">
             </div>
