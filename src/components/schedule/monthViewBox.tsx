@@ -1,11 +1,21 @@
 import { format, isFirstDayOfMonth, isSameDay } from "date-fns";
+import { useDateStore, useEventStore } from "../../store";
 
 
 function MonthViewBox({day, rowIndex, index}: { day: Date, rowIndex: number, index: number}) {
+
+  const { openPopover, events } = useEventStore();
+  const { setDate } = useDateStore();
     const isCurrentDay = isSameDay( day, new Date())
     const isFirstDayOftheMonth = isFirstDayOfMonth(day)
+
+    const handleClick = (e: React.MouseEvent) => {
+      e.preventDefault();
+      setDate(day);
+      openPopover();
+    };
   return (
-    <div className='w-8 aspect-square border flex flex-col items-center hover:bg-zinc-200 transition-all'>
+    <div onClick={handleClick} className='w-8 aspect-square border flex flex-col items-center hover:bg-zinc-200 transition-all'>
 {rowIndex === 0 && (
     <h3>{day.toLocaleDateString('en-NG', {
         weekday: 'short'

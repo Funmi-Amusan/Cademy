@@ -2,13 +2,16 @@ import React from "react";
 import ScheduleHeader from "./Header";
 import Sidebar from "./sidebar/Sidebar";
 import Monthview from "./Month";
-import { useViewStore } from "../../store";
+import { useDateStore, useEventStore, useViewStore } from "../../store";
 import WeekView from "./WeekView";
 import DayView from "./DayView";
+import EventPopover from "./eventPopover";
 
 
 function ScheduleIndex () {
   const { selectedView } = useViewStore();
+  const { userSelectedDate } = useDateStore();
+  const { isPopoverOpen, closePopover } = useEventStore();
 
 
   return (
@@ -20,6 +23,15 @@ function ScheduleIndex () {
         <Sidebar />
         {selectedView === 'month' ?  <Monthview /> : selectedView === 'week' ? <WeekView /> : <DayView /> }
         </div>
+        { isPopoverOpen && (
+          <EventPopover isOpen={isPopoverOpen} onClose={closePopover} date={userSelectedDate.toLocaleDateString('en-NG', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+          })} />
+        )
+
+        }
       </div>
     </React.Fragment>
   );
