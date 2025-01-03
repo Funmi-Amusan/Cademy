@@ -11,7 +11,7 @@ export default function ScheduleHeader() {
   const [value, setValue] = useState('left');
 
 
-  function handlePrevMonth() {
+  function handlePrevDate() {
     switch (selectedView) {
       case 'month':
         setMonth(selectedMonthIndex - 1);
@@ -28,7 +28,7 @@ export default function ScheduleHeader() {
   }
   
 
-  function handleNextMonth() {
+  function handleNextDate() {
     switch (selectedView) {
       case 'month':
         setMonth(selectedMonthIndex + 1);
@@ -81,12 +81,12 @@ const justifyTemplate = (option: { value: string | undefined; }) => {
         {userSelectedDate.toLocaleDateString('en-NG', {month: 'long', year : 'numeric'})}
       </h2>
       <div className=" flex items-center">
-      <button onClick={handlePrevMonth}>
+      <button onClick={handlePrevDate}>
         <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
          <IoChevronBackOutline  />
         </span>
       </button>
-      <button onClick={handleNextMonth}>
+      <button onClick={handleNextDate}>
         <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
           <IoChevronForwardOutline />
         </span>

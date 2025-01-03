@@ -3,7 +3,6 @@ import { getHours } from "../../utils"
 
 function DayView() {
 const { userSelectedDate } = useDateStore();
-  console.log("day", userSelectedDate)
   return (
 <>
 <div className=" flex flex-col w-full">
