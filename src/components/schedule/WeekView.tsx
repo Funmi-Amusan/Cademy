@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
-import { useDateStore } from "../../store";
+import { useDateStore, useEventStore } from "../../store";
 import { getHours, getWeekDays } from "../../utils";
 
 function WeekView() {
 
-  const { userSelectedDate } = useDateStore();
+  const { userSelectedDate, setDate } = useDateStore();
+    const { openPopover, events } = useEventStore();
+    const handleClick = (e: React.MouseEvent) => {
+      e.preventDefault();
+      setDate(userSelectedDate);
+      openPopover();
+    };
   const days = getWeekDays(userSelectedDate);
   const [currentTime, setCurrentTime] = useState(new Date());
   useEffect(() => {
@@ -34,7 +40,7 @@ function WeekView() {
          {day.currentDate.toLocaleDateString('en-NG', {day: 'numeric'})}
          </button>
         </div>
-        <div className=" border-l border-gray-300">
+        <div onClick={handleClick} className="  border-l border-gray-300">
           { getHours.map((hour, index) => (
             <div key={index} className="h-10 flex items-center justify-center border-b border-gray-300">
              
