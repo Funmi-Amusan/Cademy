@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDateStore, useEventStore } from "../../store";
 import { getHours, getWeekDays } from "../../utils";
+import { EventRenderer } from "./eventRenderer";
+import { weekEvents } from "../../lib/data";
 
 function WeekView() {
 
@@ -54,6 +56,7 @@ function WeekView() {
                       }}
                     />
                   )}
+        <EventRenderer date={userSelectedDate} view={"week"} events={weekEvents} />
         </div>
          </div>
     ))}

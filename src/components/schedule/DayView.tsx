@@ -1,5 +1,7 @@
+import { dayEvents } from "../../lib/data";
 import { useDateStore, useEventStore } from "../../store";
 import { getHours } from "../../utils"
+import { EventRenderer } from "./eventRenderer";
 
 function DayView() {
 const { userSelectedDate, setDate } = useDateStore();
@@ -45,10 +47,10 @@ const { userSelectedDate, setDate } = useDateStore();
             <div key={index} className="h-10 flex items-center justify-center border-t border-gray-300">
             </div>
         ))}
+    <EventRenderer date={userSelectedDate} view={"day"} events={dayEvents} />
     </div>
 </div>
 </div>
-
 </>  
   )
 }
