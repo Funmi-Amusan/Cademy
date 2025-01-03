@@ -1,7 +1,9 @@
+import { useDateStore } from "../../store";
 import { getHours } from "../../utils"
 
 function DayView() {
-  console.log(getHours)
+const { userSelectedDate } = useDateStore();
+  console.log("day", userSelectedDate)
   return (
 <>
 <div className=" flex flex-col w-full">
@@ -18,9 +20,9 @@ function DayView() {
 </div>
 <div className="px-4">
   <p className=" font-light"> {
-    getHours[0].toLocaleString('en-NG', {weekday: 'short'})}</p>
+    userSelectedDate.toLocaleString('en-NG', {weekday: 'short'})}</p>
       <p className=" font-normal text-xl"> {
-    getHours[0].toLocaleString('en-NG', {day: '2-digit'})}</p>
+    userSelectedDate.toLocaleString('en-NG', {day: '2-digit'})}</p>
 </div>
 </div>
 <div className="grid grid-cols-[auto_1fr] w-full h-[70vh] overflow-scroll ">

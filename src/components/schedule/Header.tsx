@@ -1,30 +1,66 @@
 import React, { useState } from "react";
-import { format, getYear, setMonth } from "date-fns";
+import { addDays, addWeeks } from "date-fns";
 import { SelectButton } from 'primereact/selectbutton';
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
-import { useViewStore } from "../../store";
+import { useDateStore, useViewStore } from "../../store";
+import { subDays, subWeeks } from 'date-fns';
 
 export default function ScheduleHeader() {
-  const { setViewType } = useViewStore();
-  const [monthIndex, setMonthIndex] = useState(new Date().getMonth());
+  const { setViewType, selectedView} = useViewStore();
+  const { selectedMonthIndex, setDate, setMonth, userSelectedDate } = useDateStore();
   const [value, setValue] = useState('left');
 
+
   function handlePrevMonth() {
-    setMonthIndex(monthIndex - 1);
-    
+    switch (selectedView) {
+      case 'month':
+        setMonth(selectedMonthIndex - 1);
+        break;
+      case 'week':
+        setDate(subWeeks(userSelectedDate, 1));
+        break;
+      case 'day':
+        setDate(subDays(userSelectedDate, 1));
+        break;
+      default:
+        break;
+    }
   }
+  
 
   function handleNextMonth() {
-    setMonthIndex(monthIndex + 1);
+    switch (selectedView) {
+      case 'month':
+        setMonth(selectedMonthIndex + 1);
+        break;
+      case 'week':
+        setDate(addWeeks(userSelectedDate, 1));
+        break;
+      case 'day':
+        setDate(addDays(userSelectedDate, 1));
+        break;
+      default:
+        break;
+    }
   }
 
   function handleReset() {
     const currentMonth = new Date().getMonth();
-    setMonthIndex(
-      monthIndex === currentMonth
-        ? monthIndex + Math.random()
-        : currentMonth
-    );
+    switch (selectedView) {
+      case 'month':
+        setMonth(currentMonth);
+        break;
+      case 'week':
+        setDate(new Date());
+        break;
+      case 'day':
+        setDate(new Date());
+        setMonth(currentMonth);
+        break;
+      default:
+        break;
+    }
+    
   }
 
   const viewOptions = [
@@ -42,7 +78,7 @@ const justifyTemplate = (option: { value: string | undefined; }) => {
     <header className="px-4 py-2 flex justify-between items-center">
       <div className="flex items-center gap-2">
       <h2 className="w-1/2 text-lg text-gray-500 font-semibold ">
-        {format(setMonth(new Date(getYear(new Date()), monthIndex), monthIndex), 'MMMM yyyy')}
+        {userSelectedDate.toLocaleDateString('en-NG', {month: 'long', year : 'numeric'})}
       </h2>
       <div className=" flex items-center">
       <button onClick={handlePrevMonth}>
