@@ -10,7 +10,7 @@ export const monthEvents = [
 
 
 export const weekEvents = [
-    { id: "ascx34", date: subHours(new Date(), 12), title: "Meeting with team", description: "We are meeting" },
+    { id: "ascx34", date: new Date(), title: "Meeting with team", description: "We are meeting" },
     { id: "ascx35", date: new Date(), title: "Project deadline", description: "We are meeting" },
 ];
 

@@ -6,12 +6,13 @@ import { useDateStore, useEventStore, useViewStore } from "../../store";
 import WeekView from "./WeekView";
 import DayView from "./DayView";
 import EventPopover from "./eventPopover";
+import { EventSummaryPopover } from "./event-summary-popover";
 
 
 function ScheduleIndex () {
   const { selectedView } = useViewStore();
   const { userSelectedDate } = useDateStore();
-  const { isPopoverOpen, closePopover } = useEventStore();
+  const { isPopoverOpen, closePopover, isEventSummaryOpen, closeEventSummary, selectedEvent, } = useEventStore();
 
 
   return (
@@ -29,9 +30,14 @@ function ScheduleIndex () {
             month: 'short',
             year: 'numeric',
           })} />
-        )
-
-        }
+        )}
+            {isEventSummaryOpen && selectedEvent && (
+        <EventSummaryPopover
+          isOpen={isEventSummaryOpen}
+          onClose={closeEventSummary}
+          event={selectedEvent}
+        />
+      )}
       </div>
     </React.Fragment>
   );

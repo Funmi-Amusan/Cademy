@@ -48,6 +48,7 @@ function WeekView() {
              
             </div>
           ))}
+          <div>
           {day.today && (
                     <div
                       className={`absolute h-0.5 !w-14 bg-red-500`}
@@ -56,7 +57,11 @@ function WeekView() {
                       }}
                     />
                   )}
+                  {
+                    
+                  }
         <EventRenderer date={userSelectedDate} view={"week"} events={weekEvents} />
+          </div>
         </div>
          </div>
     ))}
